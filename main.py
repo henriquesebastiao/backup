@@ -18,7 +18,7 @@ if not os.path.exists(origin_folder):
     sys.exit(1)
 
 if args.encrypt:
-    password = getpass.getpass('Senha: ').strip()
+    password = getpass.getpass('\nSenha: ').strip()
     print('Compactando backup')
 
     with pyzipper.AESZipFile(

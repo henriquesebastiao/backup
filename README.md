@@ -39,3 +39,13 @@ python decrypt.py
 ```
 
 Novamente a senha será solicitada. Seus arquivos serão extraídos para o diretório `./backup-extraido`
+
+### Executar de uma vez só?
+
+Caso queira apenas um comando, basta executar:
+
+```shell
+./run.sh
+```
+
+Esse script irá criar um backup criptografado e depois irá excluir a pasta backup com `shred`.

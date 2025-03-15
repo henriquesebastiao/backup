@@ -66,3 +66,12 @@ fi
 cp -r ~/.ssh "$user_path/"
 
 env >"$user_path/.env"
+
+# Exportar credenciais do Bitwarden
+
+echo "Exportando credenciais do Bitwarden"
+bw login --apikey
+bw_unlock_output=$(bw unlock --passwordenv BW_PASSWORD)
+session_key=$(echo "$bw_unlock_output" | grep -oP '(?<=export BW_SESSION=")[^"]+')
+export BW_SESSION="$session_key"
+bw export --output ./backup/bw.json --format json --session $BW_SESSION
